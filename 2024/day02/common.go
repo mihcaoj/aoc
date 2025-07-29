@@ -62,8 +62,28 @@ func isValidReport(numbers []int) bool {
 	return isIncreasing || isDecreasing
 }
 
+// isValidWithDampener checks if the report is valid, or can be made valid by removing a single level
+func isValidWithDampener(numbers []int) bool {
+	if isValidReport(numbers) {
+		return true
+	}
+
+	for i := 0; i < len(numbers); i++ {
+		// create a new slice by copying the elements from numbers up to index i (excluding i)
+		shortened := append([]int{}, numbers[:i]...)
+		// append all elements from numbers starting from index i+1 to the end
+		shortened = append(shortened, numbers[i+1:]...)
+
+		if isValidReport(shortened) {
+			return true
+		}
+	}
+
+	return false
+}
+
 // processFile reads and processes the input file and returns the count of safe reports
-func processFile(filename string) (int, error) {
+func processFile(filename string, validationFunc func([]int) bool) (int, error) {
 	file, err := os.Open(filename)
 	if err != nil {
 		return 0, fmt.Errorf("Error opening file: %w", err)
@@ -75,7 +95,7 @@ func processFile(filename string) (int, error) {
 
 	for scanner.Scan() {
 		line := scanner.Text()
-		fmt.Println("Processing:", line)
+		//fmt.Println("Processing:", line)
 
 		numbers, err := parseNumbers(line)
 		if err != nil {
@@ -83,11 +103,11 @@ func processFile(filename string) (int, error) {
 			continue
 		}
 
-		if isValidReport(numbers) {
+		if validationFunc(numbers) {
 			safeReports++
-			fmt.Println("Safe report")
+			//fmt.Println("Safe report")
 		} else {
-			fmt.Println("Unsafe report")
+			//fmt.Println("Unsafe report")
 		}
 	}
 
