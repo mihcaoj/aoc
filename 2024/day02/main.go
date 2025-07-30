@@ -3,9 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Printf("Running part1...\n")
+	fmt.Println("Running part1...")
 	Part1()
-
-	fmt.Printf("Running part2...\n")
+	fmt.Println("Running part2...")
 	Part2()
 }
