@@ -23,7 +23,7 @@ func Part1() {
 		row := strings.Split(line, "")
 		data = append(data, row)
 	}
-	if err != nil {
+	if err := scanner.Err(); err != nil {
 		log.Fatal("Error scanning file:", err)
 	}
 
