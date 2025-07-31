@@ -26,16 +26,12 @@ func Part1() {
 	acc := 0
 	for scanner.Scan() {
 		line := scanner.Text()
-		//fmt.Printf("Input: %s\n", line)
 
 		matches := re.FindAllStringSubmatch(line, -1)
 		for _, match := range matches {
-			//fmt.Printf("Match: %s\n", match[0])
-
 			a, _ := strconv.Atoi(match[1])
 			b, _ := strconv.Atoi(match[2])
 			product := a * b
-			//fmt.Printf("%d * %d = %d\n", a, b, product)
 			acc += product
 		}
 	}

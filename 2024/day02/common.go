@@ -95,7 +95,6 @@ func processFile(filename string, validationFunc func([]int) bool) (int, error) 
 
 	for scanner.Scan() {
 		line := scanner.Text()
-		//fmt.Println("Processing:", line)
 
 		numbers, err := parseNumbers(line)
 		if err != nil {
@@ -105,9 +104,6 @@ func processFile(filename string, validationFunc func([]int) bool) (int, error) 
 
 		if validationFunc(numbers) {
 			safeReports++
-			//fmt.Println("Safe report")
-		} else {
-			//fmt.Println("Unsafe report")
 		}
 	}
 
