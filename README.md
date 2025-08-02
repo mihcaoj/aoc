@@ -1,10 +1,10 @@
 # Advent of Code
 
-These are my solutions to Advent of Code puzzles in Go. 🎄
+These are my solutions to Advent of Code puzzles. 🎄
 
 ## How to run the solutions
 
-If you don't have it, [install Go](https://go.dev/dl/).
+If you don't have it yet, you can install Go from here: https://go.dev/dl/
 
 ### Clone the repo and change directory
 ```bash
@@ -12,16 +12,18 @@ git clone https://github.com/mihcaoj/aoc
 cd aoc
 ```
 
-### Choose year and day, for example
+### Choose year and day
 ```bash
 cd 2024/day02
 ```
 
-Each Advent of Code input is unique to your account. 
+### Puzzle input
 
-You can go get it here: https://adventofcode.com/2024/day/2/input
+Each Advent of Code puzzle input is unique to your account. 
 
-Copy your input and save it as a file named "input.txt" in the current directory.
+Once you're logged in, you can get yours from here: https://adventofcode.com/2024/day/2/input
+
+Copy your puzzle input and save it as a file named "input.txt" in the current directory.
 
 ### Run the solutions
 ```bash
