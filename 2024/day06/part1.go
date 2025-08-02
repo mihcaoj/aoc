@@ -1,56 +1,25 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"log"
-	"os"
 )
 
 type Position struct {
 	X, Y int
 }
 
-var directions = []struct{ dx, dy int }{
-	{0, -1}, // up
-	{1, 0},  // right
-	{0, 1},  // down
-	{-1, 0}, // left
-}
-
 func Part1() {
-	file, err := os.Open("input.txt")
+	grid, err := readGrid("input.txt")
 	if err != nil {
-		log.Fatal("Error opening file:", err)
-	}
-	defer file.Close()
-
-	var grid []string
-
-	scanner := bufio.NewScanner(file)
-	for scanner.Scan() {
-		line := scanner.Text()
-		grid = append(grid, line)
-	}
-	if err := scanner.Err(); err != nil {
-		log.Fatal("Error scanning file:", err)
+		log.Fatal("Error reading grid:", err)
 	}
 
-	var guardX, guardY int
-	found := false
-	for y, line := range grid {
-		for x, c := range line {
-			if c == '^' {
-				guardX, guardY = x, y
-				found = true
-				break
-			}
-		}
-		if found {
-			break
-		}
+	guardX, guardY, err := findGuardPosition(grid)
+	if err != nil {
+		log.Fatal("Error fiding guard position:", err)
 	}
-	// fmt.Printf("Found guard at %d,%d\n", guardX, guardY)
+
 	visited := make(map[Position]struct{})
 
 	// Mark current position of the guard as visited
@@ -61,25 +30,20 @@ func Part1() {
 	dir := 0 // facing up at first
 	for isInGrid {
 		// Compute next position of the guard
-		newGuardX, newGuardY := guardX, guardY
-		newGuardX += directions[dir].dx
-		newGuardY += directions[dir].dy
+		newGuardX, newGuardY := computeNextPosition(guardX, guardY, dir)
 
 		// Check bounds
-		if newGuardY < 0 || newGuardY >= len(grid) || newGuardX < 0 || newGuardX >= len(grid) {
-			// Guard left
+		if !isInBounds(newGuardX, newGuardY, grid) {
 			isInGrid = false
 			break
 		}
 
 		// Check collisions
-		if grid[newGuardY][newGuardX] == '#' {
+		if isObstacle(newGuardX, newGuardY, grid) {
 			// We hit an obstacle - turn right
 			dir = (dir + 1) % len(directions)
 			continue
 		}
-
-		// fmt.Printf("x,y = %d,%d\n", newGuardX, newGuardY)
 
 		var guardChar rune
 		switch dir {
@@ -114,7 +78,6 @@ func Part1() {
 		pos := Position{X: newGuardX, Y: newGuardY}
 		if _, ok := visited[pos]; !ok {
 			visited[pos] = struct{}{}
-			// fmt.Printf("%v\n", visited)
 		}
 	}
 	distinctPositions := len(visited)
