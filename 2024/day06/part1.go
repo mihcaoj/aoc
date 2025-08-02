@@ -9,7 +9,7 @@ type Position struct {
 	X, Y int
 }
 
-func Part1() {
+func partOne() {
 	grid, err := readGrid("input.txt")
 	if err != nil {
 		log.Fatal("Error reading grid:", err)

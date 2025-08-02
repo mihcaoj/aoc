@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-func Part1() {
+func partOne() {
 	pattern := `mul\(([0-9]{1,3}),([0-9]{1,3})\)`
 	re, err := regexp.Compile(pattern)
 	if err != nil {

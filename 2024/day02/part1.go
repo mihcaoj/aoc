@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-func Part1() {
+func partOne() {
 	safeReports, err := processFile("input.txt", isValidReport)
 	if err != nil {
 		log.Fatal(err)

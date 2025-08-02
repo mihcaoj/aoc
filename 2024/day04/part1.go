@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func Part1() {
+func partOne() {
 	file, err := os.Open("input.txt")
 	if err != nil {
 		log.Fatal("Error opening file:", err)

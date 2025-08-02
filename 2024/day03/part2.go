@@ -9,7 +9,7 @@ import (
 	"strconv"
 )
 
-func Part2() {
+func partTwo() {
 	// do() OR don't() OR mul(x, y)
 	pattern := `do\(\)|don't\(\)|mul\(([0-9]{1,3}),([0-9]{1,3})\)`
 

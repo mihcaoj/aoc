@@ -9,7 +9,7 @@ type State struct {
 	X, Y, Dir int
 }
 
-func Part2() {
+func partTwo() {
 	grid, err := readGrid("input.txt")
 	if err != nil {
 		log.Fatal("Error reading grid:", err)
