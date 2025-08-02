@@ -10,7 +10,7 @@ type State struct {
 }
 
 func partTwo() {
-	grid, err := readGrid("input.txt")
+	grid, err := readGrid()
 	if err != nil {
 		log.Fatal("Error reading grid:", err)
 	}

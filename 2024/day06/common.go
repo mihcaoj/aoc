@@ -14,7 +14,7 @@ var directions = []struct{ dx, dy int }{
 	{-1, 0}, // left
 }
 
-func readGrid(filename string) ([]string, error) {
+func readGrid() ([]string, error) {
 	file, err := os.Open("input.txt")
 	if err != nil {
 		log.Fatal("Error opening file:", err)
