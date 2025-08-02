@@ -45,27 +45,27 @@ func Part1() {
 			continue
 		}
 
-		var guardChar rune
-		switch dir {
-		case 0:
-			guardChar = '^'
-		case 1:
-			guardChar = '>'
-		case 2:
-			guardChar = 'v'
-		case 3:
-			guardChar = '<'
-		}
+		// var guardChar rune
+		// switch dir {
+		// case 0:
+		// 	guardChar = '^'
+		// case 1:
+		// 	guardChar = '>'
+		// case 2:
+		// 	guardChar = 'v'
+		// case 3:
+		// 	guardChar = '<'
+		// }
 
 		// Mark old pos with '.'
-		oldRow := []rune(grid[guardY])
-		oldRow[guardX] = '.'
-		grid[guardY] = string(oldRow)
+		// oldRow := []rune(grid[guardY])
+		// oldRow[guardX] = '.'
+		// grid[guardY] = string(oldRow)
 
-		// Mark new pos with dir char
-		newRow := []rune(grid[newGuardY])
-		newRow[newGuardX] = guardChar
-		grid[newGuardY] = string(newRow)
+		// // Mark new pos with dir char
+		// newRow := []rune(grid[newGuardY])
+		// newRow[newGuardX] = guardChar
+		// grid[newGuardY] = string(newRow)
 
 		// time.Sleep(150 * time.Millisecond)
 		// fmt.Print("\033[H\033[2J") // clear screen
