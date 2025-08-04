@@ -1,10 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
-	fmt.Println("Running part1...")
+	fmt.Println("Running Part 1...")
+	start := time.Now()
 	partOne()
-	fmt.Println("Running part2...")
+	elapsed := time.Since(start)
+	fmt.Println("Execution time:", elapsed)
+
+	fmt.Println("\nRunning Part 2...")
+	start = time.Now()
 	partTwo()
+	elapsed = time.Since(start)
+	fmt.Println("Execution time:", elapsed)
 }
