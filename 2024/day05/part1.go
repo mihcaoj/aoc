@@ -18,19 +18,15 @@ func partOne() {
 	rules := strings.Split(strings.TrimSpace(parts[0]), "\n")
 	updates := strings.Split(strings.TrimSpace(parts[1]), "\n")
 
-	fmt.Println("RULES:")
-
 	ruleMap := make(map[string]bool)
 	for _, rule := range rules {
 		ruleMap[rule] = true
-		fmt.Println(rule)
 	}
 
 	// Process each update
 	total := 0
 	for _, update := range updates {
 		up := strings.Split(update, ",")
-		fmt.Printf("--> Update: %s\n", up)
 		var nums []int
 		for _, s := range up {
 			num, _ := strconv.Atoi(strings.TrimSpace(s))
@@ -40,11 +36,8 @@ func partOne() {
 		// Check if valid and sum the middle numbers
 		isValid := validateUpdate(nums, ruleMap)
 		if isValid {
-			fmt.Println("VALID")
 			middle := len(nums) / 2
 			total += nums[middle]
-		} else {
-			fmt.Println("INVALID")
 		}
 	}
 	fmt.Printf("Total sum of middle page numbers: %d\n", total)
@@ -56,7 +49,6 @@ func validateUpdate(nums []int, ruleMap map[string]bool) bool {
 			// Check if there's a rule that says nums[j] should come before nums[i]
 			reverseRule := fmt.Sprintf("%d|%d", nums[j], nums[i])
 			if ruleMap[reverseRule] {
-				fmt.Printf("%d before %d breaks rule %d|%d\n", nums[i], nums[j], nums[j], nums[i])
 				return false
 			}
 		}

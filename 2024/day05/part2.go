@@ -27,7 +27,6 @@ func partTwo() {
 	total := 0
 	for _, update := range updates {
 		up := strings.Split(update, ",")
-		fmt.Printf("UPDATE: %s\n", up)
 		var nums []int
 		for _, s := range up {
 			num, _ := strconv.Atoi(strings.TrimSpace(s))
@@ -39,7 +38,6 @@ func partTwo() {
 		if wasReordered {
 			middle := len(nums) / 2
 			total += nums[middle]
-			fmt.Printf("---> Adding middle number %d, the total is now %d.\n", nums[middle], total)
 		}
 	}
 	fmt.Printf("Total sum of middle page numbers for re-ordered updates: %d\n", total)
@@ -54,10 +52,7 @@ func reorderInvalidUpdate(nums []int, ruleMap map[string]bool) bool {
 				// Check if there's a rule that says nums[j] should come before nums[i]
 				reverseRule := fmt.Sprintf("%d|%d", nums[j], nums[i])
 				if ruleMap[reverseRule] {
-					fmt.Printf("--> %d before %d breaks rule %d|%d\n", nums[i], nums[j], nums[j], nums[i])
 					nums[i], nums[j] = nums[j], nums[i]
-					fmt.Printf("--> Swapped %d and %d\n", nums[i], nums[j])
-					fmt.Printf("NEW RE-ORDERED UPDATE: %d\n", nums)
 					swapped = true
 					reordered = true
 				}
