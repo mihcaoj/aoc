@@ -2,6 +2,8 @@
 
 These are my solutions to Advent of Code puzzles. 🎄
 
+## 2024
+
 ## How to run the solutions
 
 If you don't have it yet, you can install Go from here: https://go.dev/dl/
@@ -19,7 +21,7 @@ cd 2024/day02
 
 ### Puzzle input
 
-Each Advent of Code puzzle input is unique to your account. 
+Each Advent of Code puzzle input is unique to your account.
 
 Once you're logged in, you can get yours from here: https://adventofcode.com/2024/day/2/input
 

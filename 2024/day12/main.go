@@ -11,10 +11,4 @@ func main() {
 	partOne()
 	elapsed := time.Since(start)
 	fmt.Println("Execution time:", elapsed)
-
-	// fmt.Println("\nRunning Part 2...")
-	// start = time.Now()
-	// partTwo()
-	// elapsed = time.Since(start)
-	// fmt.Println("Execution time:", elapsed)
 }
