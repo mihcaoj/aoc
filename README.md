@@ -2,7 +2,7 @@
 
 These are my solutions to Advent of Code puzzles. 🎄
 
-## 2024
+## 2024 - Go
 
 ## How to run the solutions
 
