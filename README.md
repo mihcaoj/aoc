@@ -31,3 +31,29 @@ Copy your puzzle input and save it as a file named "input.txt" in the current di
 ```bash
 go run .
 ```
+
+## 2025 - Python
+
+### Clone the repo and change directory
+```bash
+git clone https://github.com/mihcaoj/aoc
+cd aoc
+```
+
+### Choose year and day
+```bash
+cd 2025/day01
+```
+
+### Puzzle input
+
+Each Advent of Code puzzle input is unique to your account.
+
+Once you're logged in, you can get yours from here: https://adventofcode.com/2025/day/1/input
+
+Copy your puzzle input and save it as a file named "input.txt" in the current directory.
+
+### Run the solutions
+```bash
+python3 part1.py
+```
